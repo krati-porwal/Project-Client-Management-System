@@ -1,31 +1,46 @@
+# ======================
 # Python
+# ======================
 __pycache__/
-*.pyc
-*.pyo
-*.pyd
+*.py[cod]
+*$py.class
 
+# ======================
 # Django
+# ======================
 db.sqlite3
 media/
 staticfiles/
-
-# Environment variables
-.env
-
-# Virtual environment
-venv/
-env/
-
-# Logs
 *.log
 
-# OS files
-.DS_Store
-Thumbs.db
+# ======================
+# Environment variables
+# ======================
+.env
+.env.*
 
-# Node (for React later)
+# ======================
+# Virtual Environments
+# ======================
+venv/
+env/
+.venv/
+
+# ======================
+# Node / React
+# ======================
 node_modules/
+dist/
+build/
 
-# IDE files
+# ======================
+# IDE / Editor
+# ======================
 .vscode/
 .idea/
+
+# ======================
+# OS Files
+# ======================
+.DS_Store
+Thumbs.db
