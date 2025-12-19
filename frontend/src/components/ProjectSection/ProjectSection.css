@@ -1,0 +1,48 @@
+.project-section {
+  background-color: #0f1b24;
+}
+
+.project-card {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+}
+
+.project-img-wrapper {
+  position: relative;
+  height: 260px;
+  overflow: hidden;
+}
+
+.project-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.project-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background-color: #caa76a;
+  color: #000;
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+.project-content h6 {
+  color: #ffffff;
+}
+
+.read-more {
+  color: #caa76a;
+  font-size: 14px;
+  cursor: pointer;
+}

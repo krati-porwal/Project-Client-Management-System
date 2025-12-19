@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { subscribeEmail } from "../../services/api";
+import "./NewsletterSection.css";
 
 const NewsletterSection = () => {
   const [email, setEmail] = useState("");
@@ -10,7 +11,7 @@ const NewsletterSection = () => {
 
     try {
       const response = await subscribeEmail(email);
-      setMessage(response.message);
+      setMessage(response.message || "Subscribed successfully");
       setEmail("");
     } catch (error) {
       setMessage("Something went wrong");
@@ -18,44 +19,33 @@ const NewsletterSection = () => {
   };
 
   return (
-    <footer className="container-fluid py-5 bg-dark text-light">
-      {/* TITLE */}
-      <div className="row mx-0 mb-4">
-        <div className="col text-center">
-          <h4 className="fw-bold">Subscribe to our Newsletter</h4>
-          <p className="text-muted">
-            Get updates about our latest projects
-          </p>
-        </div>
+    <section className="newsletter-section">
+      <div className="newsletter-card">
+
+        <h2 className="newsletter-title">Subscribe Us</h2>
+
+        <p className="newsletter-text">
+          Subscribe to our newsletter and be the first to know about new
+          listings, market updates, and exclusive offers.
+        </p>
+
+        <form onSubmit={handleSubmit} className="newsletter-form">
+          <input
+            type="email"
+            placeholder="Enter Email Address"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+
+          <button type="submit">
+            Subscribe ✈️
+          </button>
+        </form>
+
+        {message && <p className="newsletter-message">{message}</p>}
       </div>
-
-      {/* FORM */}
-      <div className="row mx-0 justify-content-center">
-        <div className="col-md-5">
-          <form
-            onSubmit={handleSubmit}
-            className="d-flex gap-2 justify-content-center"
-          >
-            <input
-              type="email"
-              className="form-control"
-              placeholder="Enter your email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-
-            <button type="submit" className="btn btn-primary">
-              Subscribe
-            </button>
-          </form>
-
-          {message && (
-            <p className="text-center mt-3 text-success">{message}</p>
-          )}
-        </div>
-      </div>
-    </footer>
+    </section>
   );
 };
 

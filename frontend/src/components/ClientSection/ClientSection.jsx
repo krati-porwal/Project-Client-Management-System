@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { fetchClients } from "../../services/api";
+import "./ClientSection.css";
 
 const ClientSection = () => {
   const [clients, setClients] = useState([]);
@@ -11,41 +12,49 @@ const ClientSection = () => {
   }, []);
 
   return (
-    <section className="container-fluid py-5 bg-light">
+    <section className="client-section py-5 text-white">
       {/* TITLE */}
-      <div className="row mx-0 mb-4">
+      <div className="row mx-0 mb-5">
         <div className="col text-center">
-          <h2 className="fw-bold">Happy Clients</h2>
+          <p className="text-warning mb-2">Testimonials</p>
+          <h2 className="fw-bold mb-3">Happy Clients</h2>
+          <p className="text-muted">
+            Don't just take our word for it. Here's what our clients have to say
+            about their experience working with us.
+          </p>
         </div>
       </div>
 
       {/* CLIENTS GRID */}
-      <div className="row mx-0 g-4 justify-content-center">
+      <div className="row mx-0 g-4 justify-content-center px-4">
         {clients.length === 0 ? (
           <div className="col text-center">
             <p>No clients found</p>
           </div>
         ) : (
           clients.map((client, index) => (
-            <div className="col-md-4 col-lg-3" key={index}>
-              <div className="card h-100 shadow-sm text-center p-3">
-                {client.image && (
-                  <img
-                    src={`http://127.0.0.1:8000${client.image}`}
-                    alt={client.name}
-                    className="rounded-circle mx-auto mb-3"
-                    style={{
-                      width: "100px",
-                      height: "100px",
-                      objectFit: "cover",
-                    }}
-                  />
-                )}
+            <div className="col-md-6 col-lg-4" key={index}>
+              <div className="testimonial-card h-100">
+                <p className="testimonial-text">
+                  “{client.description}”
+                </p>
 
-                <p className="fst-italic">"{client.description}"</p>
+                <div className="d-flex align-items-center mt-4">
+                  {client.image && (
+                    <img
+                      src={`http://127.0.0.1:8000${client.image}`}
+                      alt={client.name}
+                      className="testimonial-img"
+                    />
+                  )}
 
-                <h5 className="fw-bold mt-3">{client.name}</h5>
-                <p className="text-muted mb-0">{client.designation}</p>
+                  <div className="ms-3">
+                    <h6 className="mb-0 fw-bold">{client.name}</h6>
+                    <small className="text-muted">
+                      {client.designation}
+                    </small>
+                  </div>
+                </div>
               </div>
             </div>
           ))

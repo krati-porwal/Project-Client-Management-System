@@ -1,0 +1,35 @@
+.client-section {
+  background-color: #0f1b24;
+}
+
+.testimonial-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 14px;
+  padding: 30px;
+  height: 100%;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
+}
+
+.testimonial-text {
+  font-size: 14px;
+  color: #cfd8dc;
+  line-height: 1.6;
+  position: relative;
+}
+
+.testimonial-text::after {
+  content: "”";
+  font-size: 50px;
+  position: absolute;
+  right: 0;
+  bottom: -10px;
+  color: rgba(255, 255, 255, 0.1);
+}
+
+.testimonial-img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #caa76a;
+}
