@@ -4,12 +4,14 @@ import ProjectSection from "../components/ProjectSection";
 import NewsletterSection from "../components/NewsletterSection/NewsletterSection";
 import Navbar from "../components/Navbar";
 import HeroSection from "../components/HeroSection";
+import AboutSection from "../components/AboutSection";
 
 const HomePage = () => {
     return (
         <>
         <Navbar/>
         <HeroSection/>
+        <AboutSection/>
         <ProjectSection/>
         <ClientSection/>
         <ContactFormSection/>
